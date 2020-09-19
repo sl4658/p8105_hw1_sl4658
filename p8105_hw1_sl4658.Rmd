@@ -43,7 +43,7 @@ as.numeric(pull(prob1_df, char_vec))
 as.numeric(pull(prob1_df, factor_vec))
 ```
 
-When we tried to convert all variables to numeric, character variables were not able to convert to numeric, this is because the character variables were not defined as character in my previous code. Consequently, NAs were introduced by coercion. This explained why we were not able to get the mean of character variables in the previous code (the variables turn into NAs).
+When we tried to convert all variables to numeric, character variables were not able to convert to numeric. Consequently, NAs were introduced by coercion. This explained why we were not able to get the mean of character variables in the previous code (the variables turn into NAs).
 
 
 ```{r}
@@ -64,14 +64,14 @@ str(penguins)
 According to the output above, we know that species, island, and sex are factor variables; bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, and year are numeric variables. 
 
 The `penguins` dataset contains the following important variables with names/values: 
-species with 3 levels, which are `r unique(penguins$species)`
-island with 3 levels, which are `r unique(penguins$island)`
-bill_length_mm, which has mean of `r mean(na.omit(penguins$bill_length_mm))` and SD of `r sd(na.omit(penguins$bill_length_mm))`
-bill_depth_mm, which has mean of `r mean(na.omit(penguins$bill_depth_mm))` and SD of `r sd(na.omit(penguins$bill_depth_mm))`
-flipper_length_mm, which has mean of `r mean(na.omit(penguins$flipper_length_mm))` and SD of `r sd(na.omit(penguins$flipper_length_mm))`
-body_mass_g, which has mean of `r mean(na.omit(penguins$body_mass_g))` and SD of `r sd(na.omit(penguins$body_mass_g))`
-sex with 2 levels, which are `r unique(penguins$sex)`
-year, which has mean of `r mean(na.omit(penguins$year))` and SD of `r sd(na.omit(penguins$body_year))`
+species with 3 levels, which are `r unique(penguins$species)`;
+island with 3 levels, which are `r unique(penguins$island)`;
+bill_length_mm, which has mean of `r mean(na.omit(penguins$bill_length_mm))` and SD of `r sd(na.omit(penguins$bill_length_mm))`;
+bill_depth_mm, which has mean of `r mean(na.omit(penguins$bill_depth_mm))` and SD of `r sd(na.omit(penguins$bill_depth_mm))`;
+flipper_length_mm, which has mean of `r mean(na.omit(penguins$flipper_length_mm))` and SD of `r sd(na.omit(penguins$flipper_length_mm))`;
+body_mass_g, which has mean of `r mean(na.omit(penguins$body_mass_g))` and SD of `r sd(na.omit(penguins$body_mass_g))`;
+sex with 2 levels, which are `r unique(penguins$sex)`;
+year, which has mean of `r mean(na.omit(penguins$year))` and SD of `r sd(na.omit(penguins$body_year))`.
 
 The `penguins` dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is `r mean(na.omit(penguins$flipper_length_mm))` mm.
 
