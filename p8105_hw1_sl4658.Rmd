@@ -43,7 +43,7 @@ as.numeric(pull(prob1_df, char_vec))
 as.numeric(pull(prob1_df, factor_vec))
 ```
 
-When we tried to convert all variables to numeric, character variables were not able to convert to numeric. Consequently, NAs were introduced by coercion. This explained why we were not able to get the mean of character variables in the previous code (the variables turn into NAs).
+When we tried to convert all variables to numeric, character variables that are not numbers were not able to convert to numeric. Consequently, NAs were introduced by coercion. This explained why we were not able to get the mean of character variables in the previous code (the variables turn into NAs).
 
 
 ```{r}
