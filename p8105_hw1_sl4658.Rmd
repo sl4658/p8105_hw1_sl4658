@@ -70,8 +70,8 @@ bill_length_mm, which has mean of `r mean(na.omit(penguins$bill_length_mm))` and
 bill_depth_mm, which has mean of `r mean(na.omit(penguins$bill_depth_mm))` and SD of `r sd(na.omit(penguins$bill_depth_mm))`;
 flipper_length_mm, which has mean of `r mean(na.omit(penguins$flipper_length_mm))` and SD of `r sd(na.omit(penguins$flipper_length_mm))`;
 body_mass_g, which has mean of `r mean(na.omit(penguins$body_mass_g))` and SD of `r sd(na.omit(penguins$body_mass_g))`;
-sex with 2 levels, which are `r unique(penguins$sex)`;
-year, which has mean of `r mean(na.omit(penguins$year))` and SD of `r sd(na.omit(penguins$body_year))`.
+sex with 2 levels, which are `r unique(na.omit((penguins$sex)))`;
+year, which has mean of `r mean(na.omit(penguins$year))` and SD of `r sd(na.omit(penguins$year))`.
 
 The `penguins` dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is `r mean(na.omit(penguins$flipper_length_mm))` mm.
 
