@@ -1,0 +1,75 @@
+---
+title: "Homework 1"
+author: "LSM"
+date: "9/19/2020"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+```
+
+## Problem 1
+
+Create a data frame with the required elements.
+
+```{r create_df}
+prob1_df = 
+  tibble(
+    samp = rnorm(10),
+    samp_gt_0 = samp > 0,
+    char_vec = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
+    factor_vec = factor(c("low","low","low","mod","mod","mod","mod","high","high","high"))
+)
+```
+
+Take the mean of each variable in the data frame above.
+
+
+```{r mean_pull_var}
+mean(pull(prob1_df, samp))
+mean(pull(prob1_df, samp_gt_0))
+mean(pull(prob1_df, char_vec))
+mean(pull(prob1_df, factor_vec))
+```
+
+I can take the mean of numbers and logical, but not able to take the mean of character or factor.
+
+
+```{r try_numeric}
+as.numeric(pull(prob1_df, samp))
+as.numeric(pull(prob1_df, samp_gt_0))
+as.numeric(pull(prob1_df, char_vec))
+as.numeric(pull(prob1_df, factor_vec))
+```
+
+When we tried to convert all variables to numeric, character variables were not able to convert to numeric, this is because the character variables were not defined as character in my previous code. Consequently, NAs were introduced by coercion. This explained why we were not able to get the mean of character variables in the previous code (the variables turn into NAs).
+
+
+```{r}
+as.numeric(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
+as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
+as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)
+```
+
+
+## Problem 2
+
+# Description of dataset
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+The `penguins` dataset contains the following important variables with names/values: 
+```{r}
+str(penguins)
+```
+
+The `penguins` dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is `r mean(na.omit(penguins$flipper_length_mm))` mm.
+
+# Make a scatterplot
+```{r}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+ggsave("scatter_plot.pdf", height = 4, width = 6)
+```
+
