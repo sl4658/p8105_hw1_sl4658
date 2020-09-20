@@ -58,12 +58,10 @@ as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)
 # Description of dataset
 ```{r}
 data("penguins", package = "palmerpenguins")
-str(penguins)
+summary(penguins)
 ```
 
-According to the output above, we know that species, island, and sex are factor variables; bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, and year are numeric variables. 
-
-The `penguins` dataset contains the following important variables with names/values: 
+According to the output above, we know the important variables with names and values in the `penguins` dataset, which includes: 
 species with 3 levels, which are `r unique(penguins$species)`;
 island with 3 levels, which are `r unique(penguins$island)`;
 bill_length_mm, which has mean of `r mean(na.omit(penguins$bill_length_mm))` and SD of `r sd(na.omit(penguins$bill_length_mm))`;
